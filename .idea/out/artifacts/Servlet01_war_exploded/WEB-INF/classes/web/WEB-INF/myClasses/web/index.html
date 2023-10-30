@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Servlet测试</title>
+</head>
+<body>
+<center>
+    <h2>Servlet测试页面</h2>
+    <hr>
+    <a href="/myweb/a.do">跳转到 a.do 所对应的 Servlet 中</a>
+    <hr>
+    <a href="/myweb/b.do">跳转到 b.do 所对应的 Servlet 中(超链接是 get 方式的提交)</a>
+    <form action="/myweb/b.do" method="get">
+        <input type="submit" value="get方式，访问 b.do">
+    </form>
+    <form action="/myweb/b.do" method="post">
+        <input type="submit" value="post方式，访问 b.do">
+    </form>
+</center>
+</body>
+</html>

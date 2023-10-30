@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>请求&相应</title>
+</head>
+<body>
+<center>
+    <h2>请求与相应</h2>
+    <hr>
+    <a href="./a.do">跳转到a.do</a>
+
+
+    <hr>
+<!--    超链接是 get 方式的传递，下面的a标签与 下面的表单的写法是一样的-->
+    <a href="./b.do?urlNum=1">跳转到b.do  url01地址 </a>
+    <br>
+    <form action="./b.do" method="get">
+        <input type="hidden" name="urlNum" value="1">
+        <input type="submit" value="跳转到 b.do url01地址">
+    </form>
+    <br>
+
+
+
+
+    <a href="./b.do?urlNum=2">跳转到b.do  url02地址 </a>
+    <hr>
+
+    <a href="/myweb/c.do?index=请求数据"> 跳转到c.do </a>
+    <hr>
+
+    <a href="/myweb/e.do?info=myPhoneNumber" >跳转到 e.do(request对象的常用方法)</a>
+    <hr>
+
+    <a href="/myweb/f.do?username=root&password=toor&status=1" >跳转到 f.do </a>
+    <hr>
+
+    <form action="/myweb/f.do" method="get">
+        <input type="hidden" name="username" value="toor">
+        <input type="hidden" name="password" value="root">
+        <input type="hidden" name="status" value="1">
+        <input type="submit" value="Get 方式提交到 f.do">
+    </form>
+    <br>
+    <form action="/myweb/f.do" method="post">
+        <input type="hidden" name="username" value="toor">
+        <input type="hidden" name="password" value="root">
+        <input type="hidden" name="status" value="1">
+        <input type="submit" value="Post 方式提交到 f.do">
+    </form>
+    <br>
+    <form action="/myweb/g.do" method="post">
+        琴<input type="checkbox" name="hobby" value="1">
+        棋<input type="checkbox" name="hobby" value="2">
+        书<input type="checkbox" name="hobby" value="3">
+        画<input type="checkbox" name="hobby" value="4">
+        <button> POST 方式提交到 g.do </button>
+    </form>
+
+
+
+</center>
+</body>
+</html>

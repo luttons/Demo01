@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!--命名空间就是 Mapper 接口的 权限定名-->
+<mapper namespace="com.lutton.dao.UserMapperInterface">
+
+<!--    sql 抽取-->
+    <sql id="sel">
+        select * from user
+    </sql>
+    
+    
+<!--    这些 select 标签就相当于是 接口的实现类。
+        方法名、返回类型、参数类型 都要与接口一致-->
+    <select id="selAll" resultType="User">
+<!--        sql 抽取的使用-->
+        <include refid="sel"/>
+    </select>
+
+    <select id="selByUserName" resultType="User" parameterType="String">
+        select * from user where username=#{username}
+    </select>
+
+    <insert id="add" parameterType="User">
+        insert into user(username, password, competence) values(#{username}, #{password}, #{competence})
+    </insert>
+
+    <update id="update" parameterType="User">
+        update user set password=#{password}, competence=#{competence} where username=#{username}
+    </update>
+
+    <delete id="deleteByName" parameterType="java.lang.String">
+        delete from user where username=#{userName}
+    </delete>
+    
+    <select id="selBySomething" resultType="User" parameterType="User">
+        select * from user
+        <where>
+            <if test="id!=0">
+                and id=#{id}
+            </if>
+            <if test="username!=null">
+                and username=#{username}
+            </if>
+            <if test="password!=null">
+                and password=#{password}
+            </if>
+            <if test="competence!=null">
+                and competence=#{competence}
+            </if>
+        </where>
+    </select>
+
+    <select id="selByNames" resultType="User" parameterType="list">
+        select * from user
+        <where>
+            <foreach item="username" collection="list"
+                     open="username in (" separator="," close=")">
+                #{username}
+            </foreach>
+        </where>
+    </select>
+
+
+</mapper>

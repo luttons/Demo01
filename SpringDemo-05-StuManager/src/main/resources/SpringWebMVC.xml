@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:context="http://www.springframework.org/schema/context"
+           xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc.xsd"
+>
+
+<!--    配置扫描路径-->
+    <context:component-scan base-package="com.lutton.controller"/>
+<!--    导入 注解驱动，导入三大组件-->
+    <mvc:annotation-driven/>
+
+<!--    释放静态资源权限-->
+<!--    配置Spring MVC框架将这些特殊请求交给默认的Servlet容器处理。
+        通过使用这个配置元素，可以确保静态资源请求不会被DispatcherServlet拦截，从而提高性能和效率。
+        简言之，Spring MVC框架将静态资源请求交给默认的Servlet容器处理，而不经过DispatcherServlet。
+        -->
+    <mvc:default-servlet-handler/>
+    
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/login"/>
+            <bean class="com.lutton.interceptor.Myinterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+</beans>

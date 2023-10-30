@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--注解的形式-->
+<configuration>
+
+    <properties resource="jdbc.properties"/>
+
+    <environments default="test01">
+        <environment id="test01">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${JDBC_DRIVER}"/>
+                <property name="url" value="${JDBC_URL}"/>
+                <property name="username" value="${JDBC_USER}"/>
+                <property name="password" value="${JDBC_PWD}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <package name="com.lutton.mapper"/>
+    </mappers>
+</configuration>

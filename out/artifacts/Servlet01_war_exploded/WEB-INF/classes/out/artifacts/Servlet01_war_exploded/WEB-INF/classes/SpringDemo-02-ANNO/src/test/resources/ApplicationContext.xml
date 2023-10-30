@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd"
+>
+
+
+<!--     直接配置 drud 的数据源-->
+<!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+<!--        <property name="url" value="jdbc:mysql://localhost:3306/qyk_java"/>-->
+<!--        <property name="username" value="root"/>-->
+<!--        <property name="password" value="toor"/>-->
+<!--    </bean>-->
+
+
+<!--    通过导入外部 properties 文件的方式来配置 数据源； -->
+<!--    上面有三行缩进的内容，是用来定义新的 命名空间，以便于能导入外部的 properties 文件-->
+<!--    <context:property-placeholder location="classpath:jdbc.properties"/>-->
+<!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        <property name="driverClassName" value="${MYSQL_DRIVER}"/>-->
+<!--        <property name="url" value="${MYSQL_URL}"/>-->
+<!--        <property name="username" value="${MYSQL_USER}"/>-->
+<!--        <property name="password" value="${MYSQL_PWD}"/>-->
+<!--    </bean>-->
+
+
+
+<!--     原始的 bean 标签进行数据的注入(下面要被注解 进行注入的方式替换)-->
+<!--        在要被替换的 bean 所对应的类的前面加上 @Component 注解，-->
+<!--    <bean id="stuDao" class="com.lutton.dao.impl.StuDaoimpl">-->
+<!--        <constructor-arg name="name" value="小肆"/>-->
+<!--        <constructor-arg name="age" value="20"/>-->
+<!--        <constructor-arg name="score" value="99.9"/>-->
+<!--    </bean>-->
+<!--    <bean id="stuService" class="com.lutton.service.impl.StuServiceImpl">-->
+<!--        <property name="stuDao" ref="stuDao"/>-->
+<!--    </bean>-->
+
+
+<!--    表示要把 当前包目录下的所有注解都扫描进来-->
+<!--    <context:component-scan base-package="com.lutton"/>-->
+
+
+</beans>

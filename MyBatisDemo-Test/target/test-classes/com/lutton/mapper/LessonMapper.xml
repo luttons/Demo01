@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.lutton.dao.LessonMapperInterface">
+    
+    <resultMap id="LessonMap" type="Lesson">
+
+        <id column="lesson_id" property="lesson_id"/>
+        <result column="lesson_name" property="lesson_name"/>
+        <result column="lesson_teacher" property="lesson_teacher"/>
+
+<!--        注意：这里是 <collection>, 返回类型为 ofType-->
+        <collection property="stuList" ofType="Student">
+            <id column="stu_id" property="stu_id"/>
+            <result column="stu_name" property="stu_name"/>
+            <result column="stu_sex" property="stu_sex"/>
+            <result column="stu_age" property="stu_age"/>
+        </collection>
+
+    </resultMap>
+
+
+    <select id="selLesson" resultMap="LessonMap">
+        select * from lesson, student where student.lesson_id = lesson.lesson_id
+    </select>
+
+</mapper>

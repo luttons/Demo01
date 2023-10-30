@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+<!--    id 就是想要的对象， class必须有无参构造方法, scope="singleton" 为单例模式， prototype 多例 -->
+<!--    <bean id="stuDao" class="com.lutton.dao.impl.StuDaoimpl" scope="singleton" init-method="initMethod" destroy-method="destroyMethod"/>-->
+
+<!--    工厂的静态方法 实例化方法对象-->
+<!--    <bean id="stuDao" class="com.lutton.factory.MyFactory" facto*ry-method="getStuDao" />-->
+
+<!--    实例化一个 工厂类-->
+<!--    <bean id="myFactory" class="com.lutton.factory.MyFactory"/>-->
+<!--    通过 上面实例化的工厂类的对象 来获取 一个工厂方法的对象-->
+<!--    <bean id="stuDao" factory-bean="myFactory" factory-method="getStuDao0bj"/>-->
+
+
+<!--    通过 set 方法来进行 SPring 的依赖注入-->
+<!--    <bean id="stuDao" class="com.lutton.dao.impl.StuDaoimpl"/>-->
+<!--    <bean id="stuService" class="com.lutton.service.impl.StuServiceImpl">-->
+<!--        键值对，相当于传值。-->
+<!--        就是把 stuDao1 当作参数传到 stuService 里面-->
+<!--        <property name="stuDao" ref="stuDao1"/>-->
+
+
+    <!--    通过带参构造方法注入-->
+<!--    <bean id="stuDao" class="com.lutton.dao.impl.StuDaoimpl"/>-->
+<!--    <bean id="stuService" class="com.lutton.service.impl.StuServiceImpl">-->
+<!--        ref: 引用型数据类型-->
+<!--        value： 直接数据类型-->
+<!--        <constructor-arg name="stuDao" ref="stuDao"/>-->
+
+
+<!--    通过构造方法进行 普通数据类型的注入-->
+<!--    <bean id="stuDao" class="com.lutton.dao.impl.StuDaoimpl">-->
+<!--         <constructor-arg name="name" value="小肆"/>-->
+<!--         <constructor-arg name="age" value="20"/>-->
+<!--         <constructor-arg name="score" value="99.99"/>-->
+<!--    </bean>-->
+<!--    <bean id="stuService" class="com.lutton.service.impl.StuServiceImpl">-->
+<!--        <constructor-arg name="stuDao" ref="stuDao"/>-->
+<!--    </bean>-->
+
+<!-- ********************************************************************************************-->
+    <import resource="StudenData.xml"/>
+<!--     其他数据类型的注入(List， Map， properties) -->
+    <bean id="stuDao" class="com.lutton.dao.impl.StuDaoimpl">
+         <constructor-arg name="name" value="小肆"/>
+         <constructor-arg name="age" value="20"/>
+         <constructor-arg name="score" value="99.99"/>
+<!--        =============> 以下是其他数据类型的注入(和上面的在一个 bean 里面)  <======================-->
+<!--    List-->
+        <property name="strList">
+            <list>
+                <value>黄固</value>
+                <value>欧阳锋</value>
+                <value>段智星</value>
+                <value>洪七公</value>
+                <value>王重阳</value>
+            </list>
+        </property>
+
+
+<!--        Map-->
+        <property name="stuMap">
+            <map>
+                <entry key="STU01" value-ref="stu01"/>
+                <entry key="STU02" value-ref="stu02"/>
+                <entry key="STU03" value-ref="stu03"/>
+                <entry key="STU04" value-ref="stu04"/>
+                <entry key="STU05" value-ref="stu05"/>
+            </map>
+        </property>
+
+
+<!--        prop-->
+        <property name="prop">
+            <props>
+                <prop key="东邪">黄固</prop>
+                <prop key="西毒">欧阳锋</prop>
+                <prop key="南帝">段智星</prop>
+                <prop key="北丐">洪七公</prop>
+                <prop key="中神通">王重阳</prop>
+            </props>
+        </property>
+    </bean>
+
+
+    <!--    Student-->
+<!--    已经导入到 StudentData 配置文件里面了-->
+<!--    <bean id="stu01" class="com.lutton.global.Student">-->
+<!--        <property name="name" value="东邪"/>-->
+<!--        <property name="age" value="20"/>-->
+<!--        <property name="score" value="99"/>-->
+<!--    </bean>-->
+<!--    <bean id="stu02" class="com.lutton.global.Student">-->
+<!--        <property name="name" value="西毒"/>-->
+<!--        <property name="age" value="20"/>-->
+<!--        <property name="score" value="99"/>-->
+<!--    </bean>-->
+<!--    <bean id="stu03" class="com.lutton.global.Student">-->
+<!--        <property name="name" value="南帝"/>-->
+<!--        <property name="age" value="20"/>-->
+<!--        <property name="score" value="99"/>-->
+<!--    </bean>-->
+<!--    <bean id="stu04" class="com.lutton.global.Student">-->
+<!--        <property name="name" value="北丐"/>-->
+<!--        <property name="age" value="20"/>-->
+<!--        <property name="score" value="99"/>-->
+<!--    </bean>-->
+<!--    <bean id="stu05" class="com.lutton.global.Student">-->
+<!--        <property name="name" value="中神通"/>-->
+<!--        <property name="age" value="20"/>-->
+<!--        <property name="score" value="99"/>-->
+<!--    </bean>-->
+
+
+
+    <bean id="stuService" class="com.lutton.service.impl.StuServiceImpl">
+        <constructor-arg name="stuDao" ref="stuDao"/>
+    </bean>
+<!-- ********************************************************************************************-->
+
+
+
+
+
+
+</beans>

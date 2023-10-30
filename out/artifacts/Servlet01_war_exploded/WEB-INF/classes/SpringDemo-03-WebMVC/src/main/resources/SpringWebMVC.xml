@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+            xmlns:context="http://www.springframework.org/schema/context"
+            xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc.xsd"
+>
+
+<!--    做组件扫描-->
+    <context:component-scan base-package="com.lutton.controller"/>
+
+<!--    自定义前后缀 , 修改的是要跳转的页面的前后缀，也就是 return 里面的前后缀 -->
+<!--    这个类是 视图解析器-->
+<!--    <bean id="iVR" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+<!--        自定义前缀-->
+<!--        <property name="prefix" value="/myweb/"/>-->
+<!--        自定义后缀-->
+<!--        <property name="suffix" value=".jsp"/>-->
+<!--    </bean>-->
+
+<!--    启用基于注解的MVC功能。-->
+<!--    自动注册处理器映射器、处理器适配器和消息转换器等组件，
+        以便能够正确解析和处理注解标记的控制器方法、请求参数和响应结果。-->
+
+<!--    自定义日期转换的 配置参数-->
+<!--    <bean id="dataConverter" class="org.springframework.context.support.ConversionServiceFactoryBean">-->
+<!--        <property name="converters">-->
+<!--            <list>-->
+<!--                <bean class="com.lutton.controller.DataConevrter"/>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+<!--    <mvc:annotation-driven conversion-service="dataConverter"/>-->
+
+
+<!--    配置文件上传解析器-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="maxUploadSize" value="102400000"/>
+    </bean>
+
+    <mvc:annotation-driven/>
+
+
+</beans>

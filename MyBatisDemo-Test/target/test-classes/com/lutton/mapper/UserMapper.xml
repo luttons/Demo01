@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--        #{}  表示 占位符-->
+
+<mapper namespace="userMapper">
+    <select id="selAll" resultType="com.lutton.domain.User">
+        select * from user
+    </select>
+
+<!--    sql.xml端已经给类型起了一个别名，所以可以直接写别名 user-->
+    <insert id="add" parameterType="User">
+        insert into user(username, password, competence) values(#{username}, #{password}, #{competence})
+    </insert>
+
+    <update id="update" parameterType="com.lutton.domain.User">
+        update user set password=#{password}, competence=#{competence} where username=#{username}
+    </update>
+    
+    <delete id="deleteByUser" parameterType="com.lutton.domain.User">
+        delete from user where username=#{username}
+    </delete>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from user where id=#{id}
+    </delete>
+
+    <delete id="deleteByName" parameterType="java.lang.String">
+        delete from user where username=#{userName}
+    </delete>
+
+
+
+
+
+</mapper>

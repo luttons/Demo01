@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/Javaweb_Maven" />
+    <file type="web" url="file://$PROJECT_DIR$/MyBatisPlusDemoo/SSMPStudentManager" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringDemo-01-IOC" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringDemo-02-ANNO" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringDemo-03-WebMVC" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringDemo-04-JdbcTemplate" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringDemo-05-StuManager" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringDemo-06-interceptor" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringDemo-07-Exception" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringDemo-08-AOP" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringDemo-09-TX" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringDemo-Template" />
+    <file type="web" url="file://$PROJECT_DIR$/SSMPStudentManager01" />
+    <file type="web" url="file://$PROJECT_DIR$/SSMPStudentManger" />
+    <file type="web" url="file://$PROJECT_DIR$/Web_Maven" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/../Maven/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_Maven/pom.xml" />
+        <option value="$PROJECT_DIR$/../Java_Maven/pom.xml" />
+        <option value="$PROJECT_DIR$/Web_Maven/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringDemo-Template/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringDemo-01-IOC/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringDemo-02-ANNO/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringDemo-03-WebMVC/pom.xml" />
+        <option value="$PROJECT_DIR$/SprintgDemo04-JdbcTemplate/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringDemo05-StuManager/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringDemo-05-StuManager/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringDemo-04-JdbcTemplate/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringDemo-06-interceptor/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringDemo-07-Exception/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringDemo-08-AOP/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringDemo-09-TX/pom.xml" />
+        <option value="$PROJECT_DIR$/MyBatisDemo-Test/pom.xml" />
+        <option value="$PROJECT_DIR$/MyBatisPlusDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/MyBatisPlusDemoo/pom.xml" />
+        <option value="$PROJECT_DIR$/SSMPStudentManager01/pom.xml" />
+        <option value="$PROJECT_DIR$/JeidsDemo01/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/MyBatisDemo-Test/MyBatisPlusTest01/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/.idea/out" />
+  </component>
+</project>

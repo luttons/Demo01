@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--配置文件的形式-->
+<!--<configuration>-->
+
+<!--&lt;!&ndash;    引入外部 properties 配置文件, 可以通过 propertie子标签来修改哥添加属性&ndash;&gt;-->
+<!--    <properties resource="jdbc.properties"/>-->
+
+<!--&lt;!&ndash;    给 type 起别名&ndash;&gt;-->
+<!--    <typeAliases>-->
+<!--        <typeAlias type="com.lutton.domain.User" alias="User"/>-->
+<!--        <typeAlias type="com.lutton.domain.Student" alias="Student"/>-->
+<!--        <typeAlias type="com.lutton.domain.Lesson" alias="Lesson"/>-->
+<!--        <typeAlias type="com.lutton.dao.StudentMapperInterface" alias="StudentMapperInterface"/>-->
+<!--    </typeAliases>-->
+
+<!--    <environments default="test01">-->
+<!--        <environment id="test01">-->
+<!--            <transactionManager type="JDBC"/>-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="${JDBC_DRIVER}"/>-->
+<!--                <property name="url" value="${JDBC_URL}"/>-->
+<!--                <property name="username" value="${JDBC_USER}"/>-->
+<!--                <property name="password" value="${JDBC_PWD}"/>-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+<!--    </environments>-->
+
+<!--    <mappers>-->
+<!--        <mapper resource="com/lutton/mapper/UserMapper.xml"/>-->
+<!--        <mapper resource="com/lutton/mapper/UserMapperInterface.xml"/>-->
+<!--        <mapper resource="com/lutton/mapper/StudentMapper.xml"/>-->
+<!--        <mapper resource="com/lutton/mapper/LessonMapper.xml"/>-->
+<!--    </mappers>-->
+<!--</configuration>-->
+
+
+
+<!--注解的形式-->
+<configuration>
+
+    <properties resource="jdbc.properties"/>
+
+    <environments default="test01">
+        <environment id="test01">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${JDBC_DRIVER}"/>
+                <property name="url" value="${JDBC_URL}"/>
+                <property name="username" value="${JDBC_USER}"/>
+                <property name="password" value="${JDBC_PWD}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <package name="com.lutton.dao"/>
+    </mappers>
+</configuration>

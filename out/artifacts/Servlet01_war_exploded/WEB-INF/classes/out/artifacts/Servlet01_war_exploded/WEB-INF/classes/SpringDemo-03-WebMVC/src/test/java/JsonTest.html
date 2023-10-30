@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Json的测试页面</title>
+</head>
+<body>
+<script>
+    function method(){
+        var userJson= "{\"username\":\"root\", \"password\":\"toor\"}";
+        alert(userJson);
+
+        // eval() 函数可以将字符串当成 JS 代码来执行，
+        // 加上括号相当于强制类型转换，这样就可以生成一个对象：user
+        var user = eval("(" + userJson + ")");
+        alert(user);
+
+        alert(user.username + " : " + user.password);
+    }
+    method();
+
+</script>
+</body>
+</html>

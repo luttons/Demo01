@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+">
+
+<!--    加载 properties 配置文件-->
+    <context:property-placeholder location="jdbc.properties"/>
+
+<!--    配置数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="jdbcUrl" value="${JDBC_URL}"/>
+        <property name="driverClass" value="${JDBC_DRIVER}"/>
+        <property name="user" value="${JDBC_USER}"/>
+        <property name="password" value="${JDBC_PWD}"/>
+    </bean>
+
+<!--    配置 JdbcTemplate-->
+    <bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+<!--    配置 StuDao-->
+    <bean name="stuDao" class="com.lutton.service.impl.StuServiceImpl">
+        <property name="JdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+
+<!--    配置 StuService-->
+    <bean name="stuService" class="com.lutton.service.impl.StuServiceImpl">
+        <property name="stuDao" ref="stuDao"/>
+    </bean>
+</beans>

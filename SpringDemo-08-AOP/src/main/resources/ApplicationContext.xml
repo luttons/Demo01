@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+">
+
+    <bean id="target" class="com.lutton.aop.Target"/>
+
+    <bean id="myAspect" class="com.lutton.aop.MyAspect"/>
+
+    <aop:config>
+<!--        切点的抽取-->
+        <aop:pointcut id="MyPointcut" expression="execution(public void com.lutton.aop.*.*(..))"/>
+        <aop:aspect ref="myAspect">
+<!--            <aop:before method="before" pointcut="execution(public void com.lutton.aop.Target.test())"/>-->
+<!--            <aop:after method="after" pointcut="execution(public void com.lutton.aop.Target.test())"/>-->
+            <aop:before method="before" pointcut-ref="MyPointcut"/>
+            <aop:after method="after" pointcut-ref="MyPointcut"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

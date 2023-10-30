@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AJAX/AJAX.iml" filepath="$PROJECT_DIR$/AJAX/AJAX.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Junit/Junit.iml" filepath="$PROJECT_DIR$/../Junit/Junit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Req_Resp/Req_Resp.iml" filepath="$PROJECT_DIR$/Req_Resp/Req_Resp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Servlet/Servlet.iml" filepath="$PROJECT_DIR$/Servlet/Servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Servlet01/Servlet01.iml" filepath="$PROJECT_DIR$/Servlet01/Servlet01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ServletOtherInterface/ServletOtherInterface.iml" filepath="$PROJECT_DIR$/ServletOtherInterface/ServletOtherInterface.iml" />
+    </modules>
+  </component>
+</project>

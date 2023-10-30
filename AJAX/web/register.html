@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        /**
+         *  原生 Ajax 写法
+         *
+         *  1. 创建一个异步请求对象
+         *  2. 为异步请求对象绑定一个 "工作状态监听器"
+         *  3. 初始化请求
+         *  4. 命令异步请求对象代替浏览器向服务端发送请求
+         *
+         * @param uname 表单输入的用户名
+         */
+        // function doCheck(uname){
+        //     // 1.创建 AJAX 对象
+        //     xmlhttp = new XMLHttpRequest();
+        //     // 2.相应之后的处理，相当于绑定了一个监听器
+        //     // onreadystatechange 就是一个事件
+        //     xmlhttp.onreadystatechange = function (){
+        //         if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+        //             // 当交互成功之后要做的事情
+        //             let info = xmlhttp.responseText;
+        //             document.getElementById("sid").innerHTML = info;
+        //         }
+        //     }
+        //
+        //     // get方式的传值：
+        //     // 3.设置请求方式; ("提交方式", "提交地址", "异步(true)or同步(false)")
+        //     xmlhttp.open("GET", "/myweb/doCheck.do?uname=" + uname, true);
+        //     // 4.发送请求
+        //     xmlhttp.send();
+        //
+        //      // post 方式的传值
+        //     // xmlhttp.open("POST", "/myweb/doCheck.do", true);
+        //     // xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        //     // xmlhttp.send("unam=" + uname);
+        //
+        // }
+
+
+
+        /**
+         *  jQuery 写法
+         */
+        // function doCheck(uname){
+        //     $.ajax({
+        //         type: "GET",
+        //         url: "/myweb/doCheck.do",
+        //         data:"uname=" + uname,
+        //
+        //         // msg 代表从服务器返回的响应消息。
+        //         // 在成功执行AJAX请求后，通过 success 回调函数，
+        //         // 将服务器返回的消息赋值给 msg 变量。
+        //         success: function(msg){
+        //             $("#sid").html(msg);
+        //         },
+        //         error: function(){
+        //             alert("请求失败");
+        //         }
+        //     });
+        // }
+
+        /**
+         *  更简洁的 jq写法
+         */
+        function doCheck(uname){
+            $.get(
+                "/myweb/doCheck.do",
+                { uname: uname},
+                function(data){
+                    $("#sid").html(data);
+                });
+
+        }
+        function doRegistered(){
+            // var pwd1 = $(".pwd1").innerText;
+            // var pwd2 = $(".pwd2").innerText;
+            // var uname = $(".uname").innerText;
+            var uname = $('input[name="uname"]').val();
+            var pwd1 = $('input[name="pwd1"]').val();
+            var pwd2 = $('input[name="pwd2"]').val();
+            $.get(
+                "/myweb/doRegistered.do",
+                {uname:uname, pwd1: pwd1, pwd2: pwd2},
+                function(data){
+                    $("#ssid").html(data);
+                    if (data){
+                        alert("注册成功！");
+                    }else {
+                        alert("两次输入的密码不一样！请重新输入.");
+                    }
+                });
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <h3>注册</h3>
+    <hr>
+    <form action="#">
+    <table>
+        <tr>
+            <td>用户名</td>
+            <td>
+                <input type="text" name="uname" placeholder="请输入用户名" onblur="doCheck(this.value)">
+                <span id="sid"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td>
+                <input type="password" name="pwd1" placeholder="请输入密码" >
+            </td>
+        </tr>
+        <tr>
+            <td>确认密码</td>
+            <td>
+                <input type="password" name="pwd2" placeholder="确认密码" >
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="注册" onclick="doRegistered()">
+                <input type="reset" value="重置">
+                <span style="color: red" id="ssid"></span>
+            </td>
+        </tr>
+    </table>
+
+    </form>
+</body>
+</html>
